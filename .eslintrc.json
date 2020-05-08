@@ -1,0 +1,62 @@
+{
+  "env": {
+      "browser": true,
+      "es6": true
+  },
+  "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "plugin:react/recommended",
+      "airbnb"
+  ],
+  "globals": {
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+      "ecmaFeatures": {
+          "jsx": true
+      },
+      "ecmaVersion": 2019,
+      "sourceType": "module"
+  },
+  "plugins": [
+      "react"
+  ],
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "no-tabs": ["error", { "allowIndentationTabs": true }],
+    "max-len": ["error", { "code": 200 }],
+    "react/sort-comp": [0],
+    "radix": ["error", "as-needed"],
+    "no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
+    "react/jsx-indent": [0],
+    "react/self-closing-comp": ["error", {
+      "component": true,
+      "html": false
+    }],
+    "no-console": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "spaced-comment": "off"
+  },
+  "overrides": [
+    {
+      "files": ["*.js", "*.jsx"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    },
+    {
+      // enable the rule specifically for TypeScript files
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/explicit-function-return-type": [
+          "error",
+          {
+            "allowExpressions": true
+          }
+        ]
+      }
+    }
+  ]
+}
